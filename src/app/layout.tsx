@@ -1,5 +1,6 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next'
 import { Providers } from './providers'
+import { PageContainer } from '@/modules/common/PageContainer'
 
 export const metadata: Metadata = {
     title: 'React Frontend Challenge',
@@ -7,15 +8,17 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({
-  children,
+    children
 }: Readonly<{
-  children: React.ReactNode;
+    children: React.ReactNode
 }>) {
-  return (
-      <html lang="en">
-          <body>
-              <Providers>{children}</Providers>
-          </body>
-      </html>
-  )
+    return (
+        <html lang="en">
+            <body>
+                <Providers>
+                    <PageContainer>{children}</PageContainer>
+                </Providers>
+            </body>
+        </html>
+    )
 }
