@@ -6,16 +6,12 @@ import {
     Tr,
     Th,
     Td,
-    Button,
-    Flex,
     TableContainer,
     Box,
-    Spacer,
     IconButton,
-    Heading
 } from '@chakra-ui/react'
 import { DeleteIcon } from '@chakra-ui/icons'
-import CreateUser from './components/CreateUser'
+import CreateUser from '../create-user/CreateUser'
 import SectionHeader from '@/modules/common/SectionHeader'
 
 const Users = ({}) => {

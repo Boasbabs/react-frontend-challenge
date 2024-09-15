@@ -18,10 +18,33 @@ import {
     Select
 } from '@chakra-ui/react'
 import { AddIcon, ArrowBackIcon } from '@chakra-ui/icons'
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { createUserValidationSchema } from './utils'
 
 const CreateUser = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
 
+    const {
+        register,
+        handleSubmit,
+        reset,
+        formState: { errors }
+    } = useForm({
+        resolver: yupResolver(createUserValidationSchema),
+        defaultValues: {
+            name: '',
+            email: '',
+            role: 'admin'
+        }
+    })
+
+    const onSubmit = (values: any) => {
+        console.log(values)
+        onClose()
+        reset()
+    }
+    
     return (
         <>
             <Button onClick={onOpen} leftIcon={<AddIcon />} boxShadow="md">
@@ -42,26 +65,36 @@ const CreateUser = () => {
                     </ModalHeader>
                     <ModalCloseButton />
                     <ModalBody>
-                        <form onSubmit={() => {}}>
+                        <form>
                             <Stack spacing={4}>
-                                <FormControl isInvalid={true} isRequired>
+                                <FormControl isInvalid={Boolean(errors.name)} isRequired>
                                     <FormLabel>Name</FormLabel>
-                                    <Input type="text" id="name" />
-                                    <FormErrorMessage>{/* no error */}</FormErrorMessage>
+                                    <Input type="text" id="name" {...register('name')} />
+                                    <FormErrorMessage>
+                                        {errors.name && errors.name.message}
+                                    </FormErrorMessage>
                                 </FormControl>
-                                <FormControl isInvalid={true} isRequired>
+                                <FormControl isInvalid={Boolean(errors.email)} isRequired>
                                     <FormLabel>Email</FormLabel>
-                                    <Input type="email" id="email" />
-                                    <FormErrorMessage>{/* no error */}</FormErrorMessage>
+                                    <Input
+                                        type="email"
+                                        id="email"
+                                        {...register('email')}
+                                    />
+                                    <FormErrorMessage>
+                                        {errors.email && errors.email.message}
+                                    </FormErrorMessage>
                                 </FormControl>
-                                <FormControl isInvalid={true} isRequired>
+                                <FormControl isInvalid={Boolean(errors.role)} isRequired>
                                     <FormLabel>Role</FormLabel>
-                                    <Select id="role">
+                                    <Select id="role" {...register('role')}>
                                         <option value="admin">Admin</option>
                                         <option value="user">User</option>
                                     </Select>
 
-                                    <FormErrorMessage>{/* no error */}</FormErrorMessage>
+                                    <FormErrorMessage>
+                                        {errors.role && errors.role.message}
+                                    </FormErrorMessage>
                                 </FormControl>
                             </Stack>
                         </form>
@@ -77,7 +110,9 @@ const CreateUser = () => {
                             <Button variant="ghost" onClick={onClose} width={'full'}>
                                 Cancel
                             </Button>
-                            <Button width={'full'}>Create User</Button>
+                            <Button width={'full'} onClick={handleSubmit(onSubmit)}>
+                                Create User
+                            </Button>
                         </Stack>
                     </ModalFooter>
                 </ModalContent>
