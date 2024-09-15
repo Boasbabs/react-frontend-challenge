@@ -1,25 +1,17 @@
 'use client'
 
-import {
-    Box,
-    Flex,
-    useColorModeValue,
-
-    Heading,
-    useColorMode
-} from '@chakra-ui/react'
+import { Box, Flex, Heading } from '@chakra-ui/react'
 
 export default function Navbar() {
-    const { colorMode, toggleColorMode } = useColorMode()
     return (
         <>
             <Box
-                bg={useColorModeValue('white', 'gray.900')}
+                bg={'white'}
                 px={6}
                 py={2}
                 borderBottom={1}
                 borderStyle={'solid'}
-                borderColor={useColorModeValue('gray.200', 'gray.900')}
+                borderColor={'gray.200'}
             >
                 <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
                     <Box>

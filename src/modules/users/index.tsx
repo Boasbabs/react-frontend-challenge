@@ -14,20 +14,16 @@ import {
     IconButton,
     Heading
 } from '@chakra-ui/react'
-import { AddIcon, DeleteIcon } from '@chakra-ui/icons'
+import { DeleteIcon } from '@chakra-ui/icons'
+import CreateUser from './components/CreateUser'
+import SectionHeader from '@/modules/common/SectionHeader'
 
-export const Users = ({}) => {
+const Users = ({}) => {
     return (
         <Box>
-            <Flex marginBottom={6}>
-                <Heading as="h3" size="md">
-                    Users
-                </Heading>
-                <Spacer />
-                <Button leftIcon={<AddIcon />} boxShadow="md">
-                    Create User
-                </Button>
-            </Flex>
+            <SectionHeader title="Users">
+                <CreateUser />
+            </SectionHeader>
             <TableContainer backgroundColor="white">
                 <Table size="lg">
                     <Thead>
@@ -81,3 +77,5 @@ export const Users = ({}) => {
         </Box>
     )
 }
+
+export default Users
