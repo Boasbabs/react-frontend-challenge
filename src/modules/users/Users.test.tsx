@@ -1,7 +1,7 @@
 import { expect, it, describe} from 'vitest'
 import { render, screen } from '@testing-library/react'
 
-import Users from './index'
+import Users from './Users'
 
 describe('Users', () => {
     it('should render the section header with title "Users"', () => {
