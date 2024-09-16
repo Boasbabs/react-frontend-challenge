@@ -26,7 +26,6 @@ export const createUser = createAsyncThunk(
 export const deleteUser = createAsyncThunk('users/deleteUser', async (userId: string) => {
     return new Promise<string>((resolve) => {
         setTimeout(() => {
-            // Simply return the userId to delete from state
             resolve(userId)
         }, 500)
     })
@@ -35,7 +34,6 @@ export const deleteUser = createAsyncThunk('users/deleteUser', async (userId: st
 export const editUser = createAsyncThunk('users/editUser', async (user: User) => {
     return new Promise<User>((resolve) => {
         setTimeout(() => {
-            // Simulate editing a user by returning the updated data
             resolve(user)
         }, 500)
     })

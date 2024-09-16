@@ -10,3 +10,10 @@ export type UsersState = {
     loading: boolean
     error: string | null
 }
+
+enum RoleValues {
+    ROLE_ADMIN = 'admin',
+    ROLE_USER = 'user'
+}
+
+export type Role = `${RoleValues}`

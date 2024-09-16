@@ -1,17 +1,7 @@
 import * as yup from 'yup'
+import { Role } from '../types'
 
-enum RoleValues {
-    ROLE_ADMIN = 'admin',
-    ROLE_USER = 'user'
-}
 
-type Role = `${RoleValues}`
-
-export interface CreateUserFormValues {
-    name: string
-    email: string
-    role:  Role
-}
 
 export const createUserValidationSchema = yup.object().shape({
     name: yup

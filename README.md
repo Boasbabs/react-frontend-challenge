@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# React Frontend Challenge
+
+A react coding assignment using **Next.js**, **TypeScript**, **Redux**,
+**Chakra UI**, and **Vitest** for testing.
+
+By [Adeyemi Babalola](mailto:babalolasimeon@gmail.com)
+
+### Technologies
+- Next.js
+- TypeScript
+- Redux and Redux Persist: State management library.
+- Chakra UI: Component library for a11y-first and styled components.
+- Vitest and React Testing Library
+- Yup & React Hook Form : form validations
+
+## Requirements
+
+### The task
+- Please follow the designs provided below for the challenge
+- Create a view which lists out Users
+- Upon clicking the delete icon the user must be deleted from the list
+- Clicking on `Create User` a modal must be presented to the user to create a new user
+- There are two roles for users — `User` and `Admin`
+- The role selection must be a select element
+- Upon adding the new user, the list of users must reflect the change
+- Clicking on an existing user, a modal with their details must be presented to the user to update details
+- Upon updating the user details, it should also reflect in the list of
+  users
+
+### Design
+![List of users](https://i.imgur.com/vXVG25v.png)
+![Create user](https://i.imgur.com/tLFTXRf.png)
+![Update user](https://i.imgur.com/8MXx9vO.png)
+
+
 
 ## Getting Started
 
-First, run the development server:
+### Installation
+
+Navigate to [repo](https://github.com/Boasbabs/react-frontend-challenge.git)
+
+Install dependencies:
+
+```bash
+npm install
+# or
+yarn install
+
+```
+
+### Running the Project
+
+Start the development server:
 
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
-
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Requirements
+Outline the assignment requirements here.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+###  What to Improve
+- Update User: able to edit user
+- More Intergraton: Add integration tests for more redux actions
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

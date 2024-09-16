@@ -9,7 +9,7 @@ type TableRowProps = {
 const TableRow = ({ user }: TableRowProps) => {
     return (
         <>
-            <Tr key={user.id}>
+            <Tr>
                 <Td>{user.name}</Td>
                 <Td>{user.email}</Td>
                 <Td>{user.role}</Td>
