@@ -9,35 +9,22 @@ import {
     Td,
     TableContainer,
     Box,
-    IconButton,
+    IconButton
 } from '@chakra-ui/react'
 import { DeleteIcon } from '@chakra-ui/icons'
 import { AppDispatch, RootState } from '@/store/store'
 import { useSelector, useDispatch } from 'react-redux'
-import CreateUser from '../create-user/CreateUser'
+import CreateUser from './components/CreateUser'
 import SectionHeader from '@/modules/common/SectionHeader'
 import { getUsers } from './redux/userSlice'
 
-
-
-
 const Users = ({}) => {
-    const userRef = useRef(false)
-
     const { users, loading, error } = useSelector((state: RootState) => state.users)
     const dispatch = useDispatch<AppDispatch>()
 
     useEffect(() => {
-        if (userRef.current === false) {
-            dispatch(getUsers())
-        }
-
-        return () => {
-            userRef.current = true
-        }
-    }, [])
-
-    console.log(users)
+        dispatch(getUsers())
+    }, [dispatch])
 
     return (
         <Box>
@@ -70,7 +57,6 @@ const Users = ({}) => {
                                             colorScheme="whiteAlpha"
                                             aria-label="Delete User"
                                             icon={<DeleteIcon color="gray" />}
-                                            // Add delete handler here if needed
                                         />
                                     </Td>
                                 </Tr>

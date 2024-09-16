@@ -20,7 +20,7 @@ import {
 import { AddIcon, ArrowBackIcon } from '@chakra-ui/icons'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { createUserValidationSchema } from './utils'
+import { createUserValidationSchema } from '../utils/utils'
 
 const CreateUser = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
@@ -44,7 +44,7 @@ const CreateUser = () => {
         onClose()
         reset()
     }
-    
+
     return (
         <>
             <Button onClick={onOpen} leftIcon={<AddIcon />} boxShadow="md">
