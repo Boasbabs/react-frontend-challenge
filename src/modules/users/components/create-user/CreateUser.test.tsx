@@ -15,7 +15,7 @@ describe('CreateUser Component', () => {
     beforeEach(() => {
         vi.clearAllMocks()
     })
-
+    
     it('opens the Create User modal correctly', async () => {
         render(
             <Provider store={store}>
