@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect } from 'react'
 import {
     Table,
     Thead,
@@ -9,22 +9,25 @@ import {
     Td,
     TableContainer,
     Box,
-    IconButton
 } from '@chakra-ui/react'
-import { DeleteIcon } from '@chakra-ui/icons'
 import { AppDispatch, RootState } from '@/store/store'
 import { useSelector, useDispatch } from 'react-redux'
 import CreateUser from './components/create-user/CreateUser'
 import SectionHeader from '@/modules/common/SectionHeader'
 import { getUsers } from './redux/userThunk'
+import TableRow from './components/common/TableRow'
 
-const Users = ({}) => {
+const Users = () => {
     const { users, loading, error } = useSelector((state: RootState) => state.users)
     const dispatch = useDispatch<AppDispatch>()
 
     useEffect(() => {
         dispatch(getUsers())
     }, [dispatch])
+
+    if (error) {
+        return <div>Error: {error}</div>
+    }
 
     return (
         <Box>
@@ -48,18 +51,7 @@ const Users = ({}) => {
                             </Tr>
                         ) : (
                             users.map((user) => (
-                                <Tr key={user.id}>
-                                    <Td>{user.name}</Td>
-                                    <Td>{user.email}</Td>
-                                    <Td>{user.role}</Td>
-                                    <Td>
-                                        <IconButton
-                                            colorScheme="whiteAlpha"
-                                            aria-label="Delete User"
-                                            icon={<DeleteIcon color="gray" />}
-                                        />
-                                    </Td>
-                                </Tr>
+                                <TableRow key={user.id} user={user} />
                             ))
                         )}
                     </Tbody>
