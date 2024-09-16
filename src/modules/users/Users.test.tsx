@@ -1,4 +1,4 @@
-import { expect, it, describe} from 'vitest'
+import { expect, it, describe } from 'vitest'
 import { render, screen } from '@testing-library/react'
 
 import Users from './Users'

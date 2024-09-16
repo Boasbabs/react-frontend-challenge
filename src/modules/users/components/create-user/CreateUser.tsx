@@ -51,7 +51,12 @@ const CreateUser = () => {
 
     return (
         <>
-            <Button onClick={onOpen} leftIcon={<AddIcon />} boxShadow="md">
+            <Button
+                onClick={onOpen}
+                leftIcon={<AddIcon />}
+                boxShadow="md"
+                data-testid="open-create-user"
+            >
                 Create User
             </Button>
             <Modal isOpen={isOpen} onClose={onClose}>
@@ -72,14 +77,14 @@ const CreateUser = () => {
                         <form>
                             <Stack spacing={4}>
                                 <FormControl isInvalid={Boolean(errors.name)} isRequired>
-                                    <FormLabel>Name</FormLabel>
+                                    <FormLabel htmlFor="name">Name</FormLabel>
                                     <Input type="text" id="name" {...register('name')} />
                                     <FormErrorMessage>
                                         {errors.name && errors.name.message}
                                     </FormErrorMessage>
                                 </FormControl>
                                 <FormControl isInvalid={Boolean(errors.email)} isRequired>
-                                    <FormLabel>Email</FormLabel>
+                                    <FormLabel htmlFor="email">Email</FormLabel>
                                     <Input
                                         type="email"
                                         id="email"
@@ -90,7 +95,7 @@ const CreateUser = () => {
                                     </FormErrorMessage>
                                 </FormControl>
                                 <FormControl isInvalid={Boolean(errors.role)} isRequired>
-                                    <FormLabel>Role</FormLabel>
+                                    <FormLabel htmlFor="role">Role</FormLabel>
                                     <Select id="role" {...register('role')}>
                                         <option value="admin">Admin</option>
                                         <option value="user">User</option>
@@ -111,10 +116,19 @@ const CreateUser = () => {
                             align="center"
                             width={'full'}
                         >
-                            <Button variant="ghost" onClick={onClose} width={'full'}>
+                            <Button
+                                variant="ghost"
+                                onClick={onClose}
+                                width={'full'}
+                                data-testid="cancel-create-user"
+                            >
                                 Cancel
                             </Button>
-                            <Button width={'full'} onClick={handleSubmit(onSubmit)}>
+                            <Button
+                                width={'full'}
+                                onClick={handleSubmit(onSubmit)}
+                                data-testid="submit-create-user"
+                            >
                                 Create User
                             </Button>
                         </Stack>
