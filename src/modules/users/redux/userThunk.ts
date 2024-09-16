@@ -1,10 +1,12 @@
 import {  createAsyncThunk } from '@reduxjs/toolkit'
 import { User } from '../types'
+import { RootState } from '@/store/store'
 
-export const getUsers = createAsyncThunk('users/getUsers', async () => {
+export const getUsers = createAsyncThunk('users/getUsers', async (_, { getState }) => {
     return new Promise<Array<User>>((resolve) => {
         setTimeout(() => {
-            resolve([]) 
+            const state = getState() as RootState
+            resolve(state.users.users)
         }, 500)
     })
 })
