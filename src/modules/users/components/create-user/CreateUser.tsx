@@ -19,10 +19,14 @@ import {
 } from '@chakra-ui/react'
 import { AddIcon, ArrowBackIcon } from '@chakra-ui/icons'
 import { useForm } from 'react-hook-form'
+import { useDispatch } from 'react-redux'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { createUserValidationSchema } from '../utils/utils'
+import { createUserValidationSchema } from '../../utils/utils'
+import { createUser } from '../../redux/userThunk'
+import { AppDispatch } from '@/store/store'
 
 const CreateUser = () => {
+    const dispatch = useDispatch<AppDispatch>()
     const { isOpen, onOpen, onClose } = useDisclosure()
 
     const {
@@ -40,7 +44,7 @@ const CreateUser = () => {
     })
 
     const onSubmit = (values: any) => {
-        console.log(values)
+        dispatch(createUser({ ...values }))
         onClose()
         reset()
     }

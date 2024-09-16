@@ -14,9 +14,9 @@ import {
 import { DeleteIcon } from '@chakra-ui/icons'
 import { AppDispatch, RootState } from '@/store/store'
 import { useSelector, useDispatch } from 'react-redux'
-import CreateUser from './components/CreateUser'
+import CreateUser from './components/create-user/CreateUser'
 import SectionHeader from '@/modules/common/SectionHeader'
-import { getUsers } from './redux/userSlice'
+import { getUsers } from './redux/userThunk'
 
 const Users = ({}) => {
     const { users, loading, error } = useSelector((state: RootState) => state.users)
